@@ -1,0 +1,20 @@
+{% extends 'myapp/base.html' %}
+  {% block content %}
+
+<h1 class="p-5"><b>🖊️Update Product</b></h1><br>
+
+<form class="p-5" method="POST" enctype="multipart/form-data" >
+  {% csrf_token %}
+  <label for="name">Product Name:</label><br>
+  <input type="text" id="name" name="name" placeholder="Name" value="{{p.name}}"><br>
+  <label for="price">Product Price:</label><br>
+  <input type="text" id="price" name="price" placeholder="Price" value="{{p.price}}"><br><br>
+  <label for="description">Product Description:</label><br>
+  <input type="text" id="description" name="description" placeholder="Description" value="{{p.description}}"><br><br>
+  <label for="name">Product Image:</label><br>
+  <img class="w-36 mb-3 rounded-lg" src="{{p.image.url}}" alt="Image Not Found">
+  <input type="file" id="upload" name="upload" ><br><br>
+  <input type="submit" class="btn" value="Update Product">
+</form> 
+
+{% endblock  %}

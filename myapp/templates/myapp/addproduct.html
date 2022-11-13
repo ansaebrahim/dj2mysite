@@ -1,0 +1,19 @@
+{% extends 'myapp/base.html' %}
+  {% block content %}
+
+<h1 class="p-5"><b>➕Add Product</b></h1><br>
+
+<form class="p-5" method="POST" enctype="multipart/form-data" >
+  {% csrf_token %}
+  <label for="name">Product Name:</label><br>
+  <input type="text" id="name" name="name" placeholder="Name"><br>
+  <label for="price">Product Price:</label><br>
+  <input type="text" id="price" name="price" placeholder="Price"><br><br>
+  <label for="description">Product Description:</label><br>
+  <input type="text" id="description" name="description" placeholder="Description"><br><br>
+  <label for="name">Product image:</label><br>
+  <input type="file" id="upload" name="upload"><br><br>
+  <input type="submit" class="btn" value="Add Product">
+</form> 
+
+{% endblock  %}

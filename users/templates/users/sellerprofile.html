@@ -1,0 +1,16 @@
+{% extends 'myapp/base.html' %}
+  {% block content %}
+  <br>
+  <div class="text-lg-center font-bold p-5">Seller Information</div>
+    <div class="card p-5">
+      <img src="{{seller.profile.image.url}}" alt="Image not found" style="width:200px" >
+      <br>
+      <p>ID: {{seller.id}}</p><br>
+      <p>Name: {{seller.username}}</p><br>
+        <p>Seller Contact: {{profile.contact_number}}</p>
+        <img class="rounded-lg" style="width:75px" src="{{profile.image.url}}">
+        <br>
+        <br>
+        
+      </div>
+      {% endblock  %}

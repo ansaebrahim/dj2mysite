@@ -1,0 +1,37 @@
+{% extends 'myapp/base.html' %}
+  {% block content %}
+  <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="relative flex items-center justify-between sm:h-10 lg:justify-start p-5 gap-10 w-50 h-50">
+   {% for p in products %}
+   <div class="card w-96 glass m-10.5"  >
+    <figure><img src="{{p.image.url}}" style="width:50% height:50%" alt="Something went wrong..."/></figure>
+    <div class="card-body">
+      <h2 class="card-title">{{p.name}}</h2>
+      <p>{{p.description}}</p>
+      <div class="card-actions justify-end">
+        <a href = "{% url 'myapp:product_details' p.id %}">
+        <button class="btn btn-primary">₹ {{p.price}}</button>
+        <br>
+        </a>
+      </div>
+      
+    </div>
+    
+  </div><br><br><br>
+   {% comment %} <div class="box-content h-64 w-32 p-4 border-4 rounded-xl">
+    <h2 style="text-align:center">Product Card</h2>
+    <a href = "{% url 'product_details' p.id %}">
+      <div class="card">
+        <img class="p.10" src="{{p.image.url}}" alt="Image not found" style="width:200px" >
+        <h1>{{p.name}}</p></h1>
+          <p class="price">₹ {{p.price}}</p>
+          <p>{{p.description}}</p>
+          <br>
+          
+        </div></a>
+<br><br>
+      </div> {% endcomment %}
+   {% endfor %}
+    </div>
+</div>
+{% endblock  %}

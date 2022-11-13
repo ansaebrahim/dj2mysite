@@ -19,9 +19,11 @@ from myapp.views import index,new_one
 from django.conf.urls.static import static
 from mysite import settings
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('myapp/', include('myapp.urls')),
+    path('users/', include('users.urls')),
     path("__reload__/", include("django_browser_reload.urls"))
 ]
 

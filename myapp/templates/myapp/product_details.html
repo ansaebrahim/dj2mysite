@@ -1,0 +1,21 @@
+{% extends 'myapp/base.html' %}
+  {% block content %}
+  
+    <div class="card p-5">
+      <img src="{{p.image.url}}" alt="Image not found" style="width:200px" ><br>
+      <br>
+      <p>ID: {{p.id}}</p><br>
+      <p>Name: {{p.name}}</p><br>
+
+        <p class="price">Price: ₹ {{p.price}}</p><br>
+        <p>Description: {{p.description}}</p><br>
+        <p>Sold By: {{p.seller}}</p><br>
+        <a href="{% url 'users:sellerprofile' p.seller.id %}">
+          <div class="text-sm text-stone-500">Seller Details<div></a>
+        
+        <br>
+        <br>
+        
+      </div>
+      {% endblock  %}
+
