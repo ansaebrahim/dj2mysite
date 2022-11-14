@@ -19,7 +19,7 @@ def register(request):
         'form':form,
     }
     return render(request, 'users/register.html',context=context)
-
+@login_required
 def profile(request):
 
     pro = Profile.objects.get(user=request.user)

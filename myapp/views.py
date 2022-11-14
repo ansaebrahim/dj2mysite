@@ -45,6 +45,7 @@ def product_details(request,id):
 
     return render(request, 'myapp/product_details.html',context=context)
 
+# @login_required
 class ProductDetailView(DetailView):
     model = Product
     template_name = 'myapp/product_details.html'
