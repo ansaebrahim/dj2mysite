@@ -1,6 +1,7 @@
 {% extends 'myapp/base.html' %}
   {% block content %}
 
+<center><div class="card w-96 bg-base-100 shadow-xl p-5">
 <h1 class="p-5"><b>👤User Login</b></h1><br>
 
 <form class="p-5" method="POST" action="{% url 'users:login' %}" >
@@ -12,6 +13,7 @@
   <input type="text" name="password" placeholder="Password" id="id_password"/>
   <br><br>
   <input type="submit" class="btn" value="Login">
-</form> 
+</form>
+</div></center> 
 
 {% endblock  %}

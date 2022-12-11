@@ -4,7 +4,7 @@
     <div class="relative flex items-center justify-between sm:h-10 lg:justify-start p-5 gap-10 w-50 h-50">
    {% for p in products %}
    <div class="card w-96 glass m-10.5"  >
-    <figure><img src="{{p.image.url}}" style="width:50% height:50%" alt="Something went wrong..."/></figure>
+    <figure><img src="{{p.image.url}}" alt="Something went wrong..."/></figure>
     <div class="card-body">
       <h2 class="card-title">{{p.name}}</h2>
       <p>{{p.description}}</p>

@@ -3,9 +3,12 @@ from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from myapp.models import Product
-# from django.db.models import Q
-from django.views.generic import ListView,DetailView,UpdateView,DeleteView,TemplateView,CreateView
-from django.urls import reverse_lazy
+from django.db.models import Q
+from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
+
+# from django.urls import reverse_lazy
+
+
 
 # Create your views here.
 
@@ -22,10 +25,11 @@ def index(request):
 def new_one(request):
     return HttpResponse("This is New one") 
 
-class ProductListView(ListView):
-    model = Product
-    template_name = 'myapp/products.html'
-    context_object_name = 'products'   
+
+# class ProductListView(ListView):
+#     model = Product
+#     template_name = 'myapp/products.html'
+#     context_object_name = 'products'   
     
 
 @login_required
@@ -46,10 +50,10 @@ def product_details(request,id):
     return render(request, 'myapp/product_details.html',context=context)
 
 # @login_required
-class ProductDetailView(DetailView):
-    model = Product
-    template_name = 'myapp/product_details.html'
-    context_object_name = 'p'
+# class ProductDetailView(DetailView):
+#     model = Product
+#     template_name = 'myapp/product_details.html'
+#     context_object_name = 'p'
 
 @login_required
 def add_product(request):
@@ -63,7 +67,14 @@ def add_product(request):
         p.save()
         return redirect('myapp/products')
     
-    return render(request, 'myapp/addproduct.html')
+    return render(request, 'myapp/product_add.html')
+
+
+# class ProductCreateView(CreateView):
+#     model = Product
+#     fields = ['name','price','description','image']
+#     context_object_name = 'p'
+#     success_url = reverse_lazy('myapp:products')
 
 
 def update_product(request,id):
@@ -88,12 +99,12 @@ def update_product(request,id):
     return render(request, 'myapp/update_product.html',context=context)
 
 
-class ProductUpdateView(UpdateView):
-    model = Product
-    fields = ['name','price','description','image','seller']
-    template_name = 'myapp/update_product.html'
-    context_object_name = 'p'
-    success_url = reverse_lazy('myapp:products')
+# class ProductUpdateView(UpdateView):
+#     model = Product
+#     fields = ['name','price','description','image']
+#     template_name = 'myapp/update_product.html'
+#     context_object_name = 'p'
+#     success_url = reverse_lazy('myapp:products')
     
 
 def delete_product(request,id):
@@ -106,10 +117,14 @@ def delete_product(request,id):
        
         return redirect('myapp/products')
     
-    return render(request, 'myapp/delete_product.html',context=context)
+    return render(request, 'myapp/product_confirm_delete.html',context=context)
 
-class ProductDeleteView(DeleteView):
-    model = Product
-    context_object_name = 'p'
-    success_url = reverse_lazy('myapp:products')
+# class ProductDeleteView(DeleteView):
+#     model = Product
+#     context_object_name = 'p'
+#     success_url = reverse_lazy('myapp:products')
+
+
+
+    
 

@@ -48,8 +48,10 @@ INSTALLED_APPS = [
     'theme',
     'django_browser_reload',
     'rest_framework',
-    'api'
+    'api',
+    'cart'
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -130,6 +132,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = 'media/'
 
